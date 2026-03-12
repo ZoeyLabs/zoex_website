@@ -1,0 +1,117 @@
+.standards { padding: 8rem 4rem; }
+
+.inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6rem;
+  align-items: center;
+}
+
+.label {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--accent);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+.title {
+  font-size: clamp(2rem, 3.5vw, 3.5rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  margin-bottom: 1rem;
+}
+
+.accent { color: var(--accent); }
+
+.sub {
+  font-family: var(--font-mono);
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.7;
+  margin-bottom: 2rem;
+  font-weight: 300;
+}
+
+.btn {
+  background: var(--accent);
+  color: var(--bg);
+  padding: 0.85rem 2rem;
+  border: none;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.9rem;
+  cursor: none;
+  transition: transform 0.2s, box-shadow 0.2s;
+  border-radius: 2px;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(0,229,196,0.3);
+}
+
+.visual { position: relative; }
+
+.fhirBox {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 2rem;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  line-height: 1.9;
+  position: relative;
+}
+
+.fhirBox::after {
+  content: 'FHIR R4';
+  position: absolute;
+  top: 1rem; right: 1rem;
+  font-size: 0.65rem;
+  color: var(--accent);
+  border: 1px solid rgba(0,229,196,0.3);
+  padding: 0.15rem 0.5rem;
+  border-radius: 2px;
+  letter-spacing: 0.1em;
+}
+
+.jKey { color: var(--muted); }
+.jVal { color: var(--accent); }
+.jStr { color: #E5C07B; }
+
+.floatingBadge {
+  position: absolute;
+  background: var(--bg);
+  border: 1px solid var(--accent);
+  border-radius: 4px;
+  padding: 0.6rem 1rem;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--accent);
+  bottom: -1rem;
+  right: -1rem;
+  animation: float 3s ease-in-out infinite;
+}
+
+.hl7Badge {
+  position: absolute;
+  background: var(--bg);
+  border: 1px solid var(--accent2);
+  border-radius: 4px;
+  padding: 0.6rem 1rem;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--accent2);
+  top: -1rem;
+  left: -1rem;
+  animation: float 3s 1.5s ease-in-out infinite;
+  z-index: 1;
+}
+
+@media (max-width: 900px) {
+  .standards { padding: 4rem 2rem; }
+  .inner { grid-template-columns: 1fr; gap: 3rem; }
+}
