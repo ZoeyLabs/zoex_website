@@ -77,7 +77,5 @@ Ready to<br /><span className={styles.accent}>build?</span>
     </form>
   )}
 </section>
-```
-
 )
 }
