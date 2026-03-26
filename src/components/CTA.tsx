@@ -1,10 +1,23 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import styles from './CTA.module.css'
 
 export default function CTA() {
   const [submitted, setSubmitted] = useState(false)
+  const ref = useRef<HTMLElement>(null)
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible') }),
+      { threshold: 0.1 }
+    )
+    ref.current?.querySelectorAll('.fade-in').forEach((el, i) => {
+      (el as HTMLElement).style.transitionDelay = i * 0.15 + 's'
+      observer.observe(el)
+    })
+    return () => observer.disconnect()
+  }, [])
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
@@ -21,7 +34,7 @@ export default function CTA() {
   }
 
   return (
-    <section className={styles.cta} id="contact">
+    <section className={styles.cta} id="contact" ref={ref}>
       <h2 className="fade-in">
         Ready to<br /><span className={styles.accent}>build?</span>
       </h2>
